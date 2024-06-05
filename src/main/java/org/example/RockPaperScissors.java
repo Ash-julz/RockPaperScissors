@@ -6,9 +6,10 @@ public class RockPaperScissors {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        display();
-        while (!sc.nextLine().equalsIgnoreCase("quit")){
-            display();
+        displayWelcomeMessage();
+        while (true){
+            displayOptions();
+
             String cpuChoice = generateRandomCPUResponse();
             String userChoice = getUserInput(sc.nextInt());
 
@@ -19,12 +20,17 @@ public class RockPaperScissors {
                 determineWinner(userChoice, cpuChoice);
             }
         }
-        sc.close();
+
     }
 
-    public static void display() {
+    public static void displayWelcomeMessage(){
         System.out.println("Welcome to Rock, Paper, Scissors\n");
-        System.out.println("Please choose an index: \n1) Rock \n2) Paper\n3) Scissors");
+    }
+
+
+    public static void displayOptions() {
+
+        System.out.println("\nPlease choose an index: \n1) Rock \n2) Paper\n3) Scissors");
     }
 
     public static String getUserInput(int userInput) {
